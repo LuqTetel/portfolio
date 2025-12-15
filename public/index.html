@@ -59,6 +59,7 @@
 
             <div class="hero__cta">
               <a class="button" href="#documents">View Resume & CV</a>
+              <a class="button button--ghost" href="docs/resume.pdf" download>Download Resume</a>
               <a class="button button--ghost" href="#certifications">Browse Certifications</a>
             </div>
 
@@ -144,18 +145,36 @@
             <article class="card card--pad">
               <h3 class="card__title">Resume</h3>
               <p class="card__text">A concise overview of my skills and experience.</p>
+              <div class="cert-embed" style="height: 480px;">
+                <object data="docs/resume.pdf" type="application/pdf" width="100%" height="100%">
+                  <div class="cert-embed__fallback">
+                    <p>PDF preview not available in your browser.</p>
+                    <a class="button" href="docs/resume.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+                    <a class="button button--ghost" href="docs/resume.pdf" download>Download</a>
+                  </div>
+                </object>
+              </div>
               <div class="card__actions">
-                <a class="button" id="resumeView" href="docs/resume.pdf" target="_blank" rel="noreferrer">View</a>
-                <a class="button button--ghost" id="resumeDownload" href="docs/resume.pdf" download>Download</a>
+                <a class="button" href="docs/resume.pdf" target="_blank" rel="noreferrer">Open</a>
+                <a class="button button--ghost" href="docs/resume.pdf" download>Download</a>
               </div>
             </article>
 
             <article class="card card--pad">
               <h3 class="card__title">CV</h3>
               <p class="card__text">A detailed version of my background and achievements.</p>
+              <div class="cert-embed" style="height: 480px;">
+                <object data="docs/cv.pdf" type="application/pdf" width="100%" height="100%">
+                  <div class="cert-embed__fallback">
+                    <p>PDF preview not available in your browser.</p>
+                    <a class="button" href="docs/cv.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+                    <a class="button button--ghost" href="docs/cv.pdf" download>Download</a>
+                  </div>
+                </object>
+              </div>
               <div class="card__actions">
-                <a class="button" id="cvView" href="docs/cv.pdf" target="_blank" rel="noreferrer">View</a>
-                <a class="button button--ghost" id="cvDownload" href="docs/cv.pdf" download>Download</a>
+                <a class="button" href="docs/cv.pdf" target="_blank" rel="noreferrer">Open</a>
+                <a class="button button--ghost" href="docs/cv.pdf" download>Download</a>
               </div>
             </article>
           </div>
