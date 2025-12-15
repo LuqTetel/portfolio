@@ -22,6 +22,53 @@ function setLink(rowId, linkId, href, label) {
   row.hidden = false;
 }
 
+function setupEmailActions(email) {
+  const actions = document.getElementById("emailActions");
+  const emailCompose = document.getElementById("emailCompose");
+  const emailGmail = document.getElementById("emailGmail");
+  const emailCopy = document.getElementById("emailCopy");
+  const hint = document.getElementById("contactHint");
+  if (hint) hint.hidden = true;
+  if (!actions || !email) return;
+  actions.hidden = false;
+
+  const subject = "Hello Luqman";
+  const body = "Hi there, I'd like to get in touch.";
+  const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  if (emailCompose) {
+    emailCompose.href = mailto;
+    emailCompose.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = mailto;
+    });
+  }
+
+  if (emailGmail) {
+    emailGmail.href = gmail;
+    emailGmail.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.open(gmail, "_blank", "noopener");
+    });
+  }
+
+  if (emailCopy) {
+    emailCopy.addEventListener("click", async () => {
+      const original = emailCopy.textContent;
+      try {
+        await navigator.clipboard.writeText(email);
+        emailCopy.textContent = "Copied";
+      } catch {
+        // Fallback prompt if clipboard fails
+        const ok = window.prompt("Copy email", email);
+        if (ok !== null) emailCopy.textContent = "Copied";
+      }
+      setTimeout(() => { emailCopy.textContent = original; }, 1200);
+    });
+  }
+}
+
 function setSpan(rowId, spanId, value) {
   const row = document.getElementById(rowId);
   const span = document.getElementById(spanId);
@@ -255,27 +302,8 @@ async function main() {
     setText("aboutText", profile.about || "");
     if (profile.focus) setText("focusText", profile.focus);
     if (profile.email) {
-      // Show email row
       setLink("contactEmailRow", "contactEmail", `mailto:${profile.email}`, profile.email);
-      // Configure email action shortcuts
-      const actions = document.getElementById("emailActions");
-      const emailCompose = document.getElementById("emailCompose");
-      const emailGmail = document.getElementById("emailGmail");
-      const emailCopy = document.getElementById("emailCopy");
-      if (actions) actions.hidden = false;
-      if (emailCompose) emailCompose.href = `mailto:${profile.email}?subject=Hello%20Luqman&body=Hi%20there%2C%20I%27d%20like%20to%20get%20in%20touch.`;
-      if (emailGmail) emailGmail.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}&su=${encodeURIComponent("Hello Luqman")}&body=${encodeURIComponent("Hi there, I'd like to get in touch.")}`;
-      if (emailCopy) {
-        emailCopy.addEventListener("click", async () => {
-          try {
-            await navigator.clipboard.writeText(profile.email);
-            emailCopy.textContent = "Copied";
-            setTimeout(() => { emailCopy.textContent = "Copy Email"; }, 1200);
-          } catch {
-            emailCopy.textContent = profile.email;
-          }
-        });
-      }
+      setupEmailActions(profile.email);
     }
     if (profile.phone) { setLink("contactPhoneRow", "contactPhone", `tel:${profile.phone}`, profile.phone); }
     if (profile.location) { setSpan("contactLocationRow", "contactLocation", profile.location); }
