@@ -9,12 +9,12 @@
   "email": "",
   "phone": "",
   "links": {
-    "github": "",
-    "githubLabel": "",
+    "github": "https://github.com/LuqTetel",
+    "githubLabel": "github.com/LuqTetel",
     "linkedin": "",
     "linkedinLabel": "",
-    "website": "",
-    "websiteLabel": ""
+    "website": "https://portfolio-eight-smoky-90.vercel.app",
+    "websiteLabel": "portfolio.vercel.app"
   }
 }
 
