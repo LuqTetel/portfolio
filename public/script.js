@@ -19,6 +19,14 @@ function setLink(rowId, linkId, href, label) {
   if (!href) { row.hidden = true; return; }
   link.href = href;
   link.textContent = label ?? href;
+  // Open external links in a new tab for reliability
+  if (/^https?:\/\//i.test(href)) {
+    link.target = "_blank";
+    link.rel = "noreferrer noopener";
+  } else {
+    link.removeAttribute("target");
+    link.removeAttribute("rel");
+  }
   row.hidden = false;
 }
 
