@@ -1,0 +1,20 @@
+{
+  "name": "Muhammad Luqman Hakimi",
+  "fullName": "Muhammad Luqman Hakimi Bin Mohd Zamri",
+  "title": "Junior Software Engineer",
+  "focus": "Python · Power BI · Data Visualization",
+  "summary": "Junior Software Engineer with training in Python, data visualization, and Power BI.",
+  "about": "This portfolio showcases my certifications and provides my resume and CV as downloadable PDFs. You can update this section and the contact links in public/data/profile.json.",
+  "location": "",
+  "email": "",
+  "phone": "",
+  "links": {
+    "github": "",
+    "githubLabel": "",
+    "linkedin": "",
+    "linkedinLabel": "",
+    "website": "",
+    "websiteLabel": ""
+  }
+}
+

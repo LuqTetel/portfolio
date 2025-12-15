@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Portfolio | Muhammad Luqman Hakimi</title>
+    <link rel="icon" href="assets/picture.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loader">
+      <div class="loading__spinner"></div>
+    </div>
+
+    <!-- Pixelated Background -->
+    <div class="bg-animation"></div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a class="brand" href="#top" aria-label="Go to top">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text" id="brandName">Portfolio</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__link" href="#about">About</a>
+          <a class="nav__link" href="#certifications">Certifications</a>
+          <a class="nav__link" href="#documents">Resume & CV</a>
+          <a class="nav__link" href="#contact">Contact</a>
+        </nav>
+
+        <button class="button button--ghost" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="button__icon" aria-hidden="true">◐</span>
+          <span class="button__text">Theme</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow" id="heroEyebrow">👋 Hello, I'm</p>
+            <h1 class="hero__title" id="fullName">Muhammad Luqman Hakimi</h1>
+            <p class="hero__subtitle" id="title">Junior Software Engineer</p>
+
+            <p class="hero__summary" id="summary">
+              Junior Software Engineer with training in Python, data visualization, and Power BI.
+            </p>
+
+            <div class="hero__cta">
+              <a class="button" href="#documents">View Resume & CV</a>
+              <a class="button button--ghost" href="#certifications">Browse Certifications</a>
+            </div>
+
+            <dl class="stats" aria-label="Quick facts">
+              <div class="stats__item">
+                <dt class="stats__label">Certifications</dt>
+                <dd class="stats__value" id="certCount">—</dd>
+              </div>
+              <div class="stats__item">
+                <dt class="stats__label">Focus</dt>
+                <dd class="stats__value" id="focusText">Python · Power BI · Data Viz</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero__media">
+            <div class="avatar" role="img" aria-label="Profile picture">
+              <img class="avatar__img" src="assets/picture.png" alt="Profile picture" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="about">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">About</h2>
+            <p class="section__subtitle">
+              A quick introduction and what I’ve been learning.
+            </p>
+          </div>
+
+          <div class="card card--pad">
+            <div class="about">
+              <p class="about__text" id="aboutText">
+                This portfolio highlights my certifications and includes my resume and CV for easy viewing and download.
+              </p>
+
+              <div class="chips" id="chips" aria-label="Highlights"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="certifications">
+        <div class="container">
+          <div class="section__header section__header--row">
+            <div>
+              <h2 class="section__title">Certifications</h2>
+              <p class="section__subtitle">All certificates from the <code>Certificate</code> folder.</p>
+            </div>
+
+            <div class="controls">
+              <label class="field">
+                <span class="field__label">Search</span>
+                <input
+                  class="field__input"
+                  id="certSearch"
+                  type="search"
+                  inputmode="search"
+                  placeholder="e.g. Power BI, Python, Visualization"
+                  autocomplete="off"
+                />
+              </label>
+              <button class="button button--ghost" id="clearSearch" type="button">Clear</button>
+            </div>
+          </div>
+
+          <div class="grid" id="certGrid" aria-live="polite"></div>
+
+          <p class="muted" id="certEmpty" hidden>No certificates match your search.</p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="documents">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">Resume & CV</h2>
+            <p class="section__subtitle">Open in a new tab or download as PDF.</p>
+          </div>
+
+          <div class="grid grid--two">
+            <article class="card card--pad">
+              <h3 class="card__title">Resume</h3>
+              <p class="card__text">A concise overview of my skills and experience.</p>
+              <div class="card__actions">
+                <a class="button" id="resumeView" href="docs/resume.pdf" target="_blank" rel="noreferrer">View</a>
+                <a class="button button--ghost" id="resumeDownload" href="docs/resume.pdf" download>Download</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <h3 class="card__title">CV</h3>
+              <p class="card__text">A detailed version of my background and achievements.</p>
+              <div class="card__actions">
+                <a class="button" id="cvView" href="docs/cv.pdf" target="_blank" rel="noreferrer">View</a>
+                <a class="button button--ghost" id="cvDownload" href="docs/cv.pdf" download>Download</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="contact">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">Contact</h2>
+            <p class="section__subtitle">Update these links in <code>public/data/profile.json</code>.</p>
+          </div>
+
+          <div class="grid grid--two">
+            <div class="card card--pad">
+              <h3 class="card__title">Direct</h3>
+              <ul class="list">
+                <li class="list__item" id="contactEmailRow" hidden>
+                  <span class="list__label">Email</span>
+                  <a class="list__value" id="contactEmail" href="#">—</a>
+                </li>
+                <li class="list__item" id="contactPhoneRow" hidden>
+                  <span class="list__label">Phone</span>
+                  <a class="list__value" id="contactPhone" href="#">—</a>
+                </li>
+                <li class="list__item" id="contactLocationRow" hidden>
+                  <span class="list__label">Location</span>
+                  <span class="list__value" id="contactLocation">—</span>
+                </li>
+              </ul>
+              <p class="muted" id="contactHint">Fill in your contact details to show them here.</p>
+            </div>
+
+            <div class="card card--pad">
+              <h3 class="card__title">Links</h3>
+              <ul class="list">
+                <li class="list__item" id="linkGithubRow" hidden>
+                  <span class="list__label">GitHub</span>
+                  <a class="list__value" id="linkGithub" href="#" target="_blank" rel="noreferrer">—</a>
+                </li>
+                <li class="list__item" id="linkLinkedinRow" hidden>
+                  <span class="list__label">LinkedIn</span>
+                  <a class="list__value" id="linkLinkedin" href="#" target="_blank" rel="noreferrer">—</a>
+                </li>
+                <li class="list__item" id="linkWebsiteRow" hidden>
+                  <span class="list__label">Website</span>
+                  <a class="list__value" id="linkWebsite" href="#" target="_blank" rel="noreferrer">—</a>
+                </li>
+              </ul>
+              <p class="muted">Add/remove links as you like.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="muted">
+          <span id="footerName">Muhammad Luqman Hakimi</span> ·
+          <span id="year"></span>
+        </p>
+        <p class="muted">Built for Docker deployment.</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
